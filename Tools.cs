@@ -17,9 +17,7 @@ namespace TicTacToe_IS02_09
         //
         //Contain a method that receives the game board array as input and returns if there is a winner and who it was
         //
-        //  public static string DeclareWinner (string[] boardArray)
-
-        //
+        //  public static int DeclareWinner (string[] boardArray)
 
         //Print Format
         //
