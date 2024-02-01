@@ -99,8 +99,8 @@ while(whoWins == 0)
     }
 
     //Print the board by calling the method in the Tools class
-    //t.PrintBoard(boardArray);
-    Console.WriteLine("Board printed");                                         //DELETE LATER
+    Tools.PrintBoard(boardArray);
+                                            //DELETE LATER
 
     //Next player
     if (whoseTurn == 1)
@@ -117,8 +117,9 @@ while(whoWins == 0)
     goodInput = false;
 
     //Check for a winner by calling the method in the Tools class
-    //whoWins = t.DeclareWinner(boardArray);
-    Console.WriteLine("Winner checked");                                        //DELETE LATER
+    whoWins = Tools.DeclareWinner(boardArray);
+    
+    // Console.WriteLine("Winner checked");                                        //DELETE LATER
     
     if (turnNum == 9)                                                           //DELETE LATER
     {
