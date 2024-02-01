@@ -14,29 +14,15 @@ namespace TicTacToe_IS02_09
         //Receive the “board” array from the driver class
         //Contain a method that prints the board based on the information passed to it
         //
-        public static void PrintBoard (string[] boardArray)
+        public static void PrintBoard(string[] boardArray)
         {
-            for (int i = 0; i < boardArray.Length; i++)
-            {
-                if ((i == 2) || (i == 5))
-                {
-                    Console.WriteLine(" " + boardArray[i] + " ");
-                    Console.WriteLine("---+---+---");
-                }
-                else
-                {
-                    if (i != 8)
-                    {
-                        Console.Write(" " + boardArray[i] + " |");
-                    }
-                    else
-                    {
-                        Console.Write(" " + boardArray[i] + " ");
-                    }
-
-                }
-
-            }
+            Console.WriteLine();
+            Console.WriteLine("  " + boardArray[0] + " | " + boardArray[1] + " | " + boardArray[2]);
+            Console.WriteLine(" ---+---+--- ");
+            Console.WriteLine("  " + boardArray[3] + " | " + boardArray[4] + " | " + boardArray[5]);
+            Console.WriteLine(" ---+---+--- ");
+            Console.WriteLine("  " + boardArray[6] + " | " + boardArray[7] + " | " + boardArray[8]);
+            Console.WriteLine( );
         }
         //
         // Contain a method that receives the game board array as input and returns if there is a winner
@@ -115,23 +101,23 @@ namespace TicTacToe_IS02_09
 
 
 
-            //Print Format
-            //
-            //  x | o | x
-            // ---+---+---
-            //  o | x | o
-            // ---+---+---
-            //  x | o | x
-            //
-            //Array Format
-            //
-            //  1 | 2 | 3
-            // ---+---+---
-            //  4 | 5 | 6
-            // ---+---+---
-            //  7 | 8 | 9
-            //
-            // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        //Print Format
+        //
+        //  x | o | x
+        // ---+---+---
+        //  o | x | o
+        // ---+---+---
+        //  x | o | x
+        //
+        //Array Format
+        //
+        //  1 | 2 | 3
+        // ---+---+---
+        //  4 | 5 | 6
+        // ---+---+---
+        //  7 | 8 | 9
+        //
+        // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-        }
+    }
 }
