@@ -13,7 +13,6 @@ bool goodInput = false;
 bool[] alreadyGuessed = { false, false, false, false, false, false, false, false, false };
 int playerPlacement = 0;
 int whoseTurn = 1;
-int turnNum = 0;                                                                //DELETE LATER
 int whoWins = 0;
 
 //Create a game board array to store the players’ choices
@@ -38,14 +37,12 @@ Console.WriteLine("  7 | 8 | 9");
 Console.WriteLine();
 
 //Ask each player in turn for their choice and update the game board array
-while(whoWins == 0)
+while (whoWins == 0)
 {
-    turnNum++;                                                              //DELETE LATER
-
-    if(whoseTurn == 1)
+    if (whoseTurn == 1)
     {
         Console.WriteLine(player1 + ", where would you like to place an X?");
-        
+
     }
     else
     {
@@ -58,7 +55,7 @@ while(whoWins == 0)
         userInput = Console.ReadLine();
 
         //Check if it's a number
-        if(!int.TryParse(userInput, out playerPlacement))
+        if (!int.TryParse(userInput, out playerPlacement))
         {
             Console.WriteLine("That is not a number, please try again:");
         }
@@ -67,16 +64,32 @@ while(whoWins == 0)
             playerPlacement = int.Parse(userInput);
 
             //Check if it's in the valid range
-            if(playerPlacement <= 0 || playerPlacement >= 10)
+            if (playerPlacement <= 0 || playerPlacement >= 10)
             {
-                Console.WriteLine("That is not a valid number, please try again:");
+                Console.WriteLine("That is not a valid number, the board format is shown below:");
+                Console.WriteLine();
+                Console.WriteLine("  1 | 2 | 3");
+                Console.WriteLine(" ---+---+---");
+                Console.WriteLine("  4 | 5 | 6");
+                Console.WriteLine(" ---+---+---");
+                Console.WriteLine("  7 | 8 | 9");
+                Console.WriteLine();
+                Console.WriteLine("Please try again:");
             }
             else
             {
                 //Check if it has already been guessed
-                if(alreadyGuessed[playerPlacement - 1])
+                if (alreadyGuessed[playerPlacement - 1])
                 {
-                    Console.WriteLine("That square is taken, please try again:");
+                    Console.WriteLine("That square is taken, the board format is shown below:");
+                    Console.WriteLine();
+                    Console.WriteLine("  1 | 2 | 3");
+                    Console.WriteLine(" ---+---+---");
+                    Console.WriteLine("  4 | 5 | 6");
+                    Console.WriteLine(" ---+---+---");
+                    Console.WriteLine("  7 | 8 | 9");
+                    Console.WriteLine();
+                    Console.WriteLine("Please try again:");
                 }
                 else
                 {
@@ -89,7 +102,7 @@ while(whoWins == 0)
     } while (!goodInput);
 
     //Mark the player's square
-    if(whoseTurn == 1)
+    if (whoseTurn == 1)
     {
         boardArray[playerPlacement - 1] = "x";
     }
@@ -100,7 +113,6 @@ while(whoWins == 0)
 
     //Print the board by calling the method in the Tools class
     Tools.PrintBoard(boardArray);
-                                            //DELETE LATER
 
     //Next player
     if (whoseTurn == 1)
@@ -118,21 +130,14 @@ while(whoWins == 0)
 
     //Check for a winner by calling the method in the Tools class
     whoWins = Tools.DeclareWinner(boardArray);
-    
-    // Console.WriteLine("Winner checked");                                        //DELETE LATER
-    
-    /*if (turnNum == 9)                                                           //DELETE LATER
-    {
-        whoWins = 3;
-    }*/
 }
 
 //Notify the players when a win has occurred and which player won the game
-if(whoWins == 1)
+if (whoWins == 1)
 {
     Console.WriteLine(player1 + " won the game!");
 }
-else if(whoWins == 2)
+else if (whoWins == 2)
 {
     Console.WriteLine(player2 + " won the game!");
 }
