@@ -53,45 +53,63 @@ namespace TicTacToe_IS02_09
             int winNum = 0;
             int letterCount = 0;
             string winnerChar = "";
+            bool isWin = false;
 
             for (int i = 0; i < boardArray.Length; i++)
             {
-                if ((boardArray[i] == "x") || (boardArray[i] == "o"))
+                // Counts the x's and o's 
+                if ((boardArray[i] == "x"))
                 {
                     letterCount++;
-                }
-                if ((i == 0) || (i == 1) || (i == 2))
-                {
-                    if ((boardArray[i] == boardArray[i + 3]) && (boardArray[i] == boardArray[i + 6]))
+                    if ((boardArray[i] == "o"))
                     {
-                        winnerChar = boardArray[i];
+                        letterCount++;
                     }
                 }
 
-                if ((i == 0) || (i == 3) || (i == 6))
+                if (isWin == false) 
                 {
-                    if ((boardArray[i] == boardArray[i + 1]) && (boardArray[i] == boardArray[i + 2]))
+                    // checks for any wins in the columns
+                    if ((i == 0) || (i == 1) || (i == 2))
                     {
-                        winnerChar = boardArray[i];
-                    }
-                }
 
-                if ((i == 4))
-                {
-                    if ((boardArray[i] == boardArray[i + 2]) && (boardArray[i] == boardArray[i - 2]))
-                    {
-                        winnerChar = boardArray[i];
+                        if ((boardArray[i] == boardArray[i + 3]) && (boardArray[i] == boardArray[i + 6]))
+                        {
+                            winnerChar = boardArray[i];
+                            isWin = true;
+                        }
                     }
 
-                    else if ((boardArray[i] == boardArray[i + 4]) && (boardArray[i] == boardArray[i - 4]))
+                    // checks for any wins in the rows 
+                    if ((i == 0) || (i == 3) || (i == 6))
                     {
-                        winnerChar = boardArray[i];
+                        if ((boardArray[i] == boardArray[i + 1]) && (boardArray[i] == boardArray[i + 2]))
+                        {
+                            winnerChar = boardArray[i];
+                            isWin = true;
+                        }
+                    }
+
+                    // checks for any wins diagonally
+                    if ((i == 4))
+                    {
+                        if ((boardArray[i] == boardArray[i + 2]) && (boardArray[i] == boardArray[i - 2]))
+                        {
+                            winnerChar = boardArray[i];
+                            isWin = true;
+                        }
+
+                        else if ((boardArray[i] == boardArray[i + 4]) && (boardArray[i] == boardArray[i - 4]))
+                        {
+                            winnerChar = boardArray[i];
+                            isWin = true;
+                        }
                     }
                 }
+                
             }
 
-            // keep playing
-            if (letterCount == 9)
+            if ((letterCount == 9) && (winnerChar == ""))
             {
                 winNum = 3;
             }

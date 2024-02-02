@@ -121,10 +121,10 @@ while(whoWins == 0)
     
     // Console.WriteLine("Winner checked");                                        //DELETE LATER
     
-    if (turnNum == 9)                                                           //DELETE LATER
+    /*if (turnNum == 9)                                                           //DELETE LATER
     {
         whoWins = 3;
-    }
+    }*/
 }
 
 //Notify the players when a win has occurred and which player won the game
